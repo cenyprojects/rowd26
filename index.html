@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Info Form</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="card">
+
+    <div class="card-top">
+        <img src="images/ceny-logo.png" alt="Christ Embassy North York Logo" class="church-logo">
+        <div class="card-header">
+            <h1>Tell us about you</h1>
+            <p>Fill in your details below to get started</p>
+            <div class="divider"></div>
+        </div>
+    </div>
+
+  <form id="userForm" novalidate>
+
+    <!-- Personal Info: Name + Gender -->
+    <div class="section-label">Personal Info</div>
+    <div class="row">
+      <div class="field">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+      </div>
+      <div class="field">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+      </div>
+    </div>
+
+    <div class="field" style="margin-top: .85rem;">
+      <label>Gender</label>
+      <div class="gender-group">
+        <input type="radio" id="male"       name="gender" value="male" />
+        <label for="male">Male</label>
+
+        <input type="radio" id="female"     name="gender" value="female" />
+        <label for="female">Female</label>
+
+        <input type="radio" id="prefer-not" name="gender" value="prefer-not-to-say" />
+        <label for="prefer-not">Prefer not to say</label>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="section-label">Contact</div>
+    <div class="field">
+      <label for="phone">Phone Number</label>
+      <div class="input-icon-wrap">
+        <span>📞</span>
+        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required />
+      </div>
+    </div>
+
+    <!-- Social Media -->
+    <div class="section-label">Social Media</div>
+    <div class="row">
+      <div class="field">
+        <label for="instagram">Instagram</label>
+        <div class="input-icon-wrap">
+          <span>📸</span>
+          <input type="text" id="instagram" name="instagram" placeholder="@handle" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="tiktok">TikTok</label>
+        <div class="input-icon-wrap">
+          <span>🎵</span>
+          <input type="text" id="tiktok" name="tiktok" placeholder="@handle" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Born again checkbox -->
+    <div class="born-again-wrap">
+      <input type="checkbox" id="bornAgain" name="bornAgain" />
+      <label for="bornAgain">I got born again today 🙏</label>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit →</button>
+    <div class="toast" id="toast"></div>
+
+  </form>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
