@@ -37,6 +37,7 @@ document.getElementById('userForm').addEventListener('submit', async function (e
   const firstName = document.getElementById('firstName').value.trim();
   const lastName  = document.getElementById('lastName').value.trim();
   const phone     = document.getElementById('phone').value.trim();
+  const email     = document.getElementById('email').value.trim();
   const instagram = document.getElementById('instagram').value.trim();
   const tiktok    = document.getElementById('tiktok').value.trim();
   const bornAgain = document.getElementById('bornAgain').checked ? 'Yes' : 'No';
@@ -47,12 +48,18 @@ document.getElementById('userForm').addEventListener('submit', async function (e
     return;
   }
 
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (email && !emailPattern.test(email)) {
+    showToast('⚠️ Please enter a valid email address.', 'error');
+    return;
+  }
+
   const submitBtn = document.querySelector('.submit-btn');
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting…';
   submitBtn.classList.add('loading');
 
-  const payload = { firstName, lastName, phone, instagram, tiktok, bornAgain };
+  const payload = { firstName, lastName, phone, email, instagram, tiktok, bornAgain };
 
   try {
     const response = await fetch(APPS_SCRIPT_URL, {
